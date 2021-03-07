@@ -2,13 +2,15 @@
 
 @import '~@nebular/theme/styles/globals';
 
-//@import '~tailwindcss/base';
-//@import '~tailwindcss/components';
-//@import '~tailwindcss/utilities';
+@import '~tailwindcss/base';
+@import '~tailwindcss/components';
+@import '~tailwindcss/utilities';
 
 @include nb-install() {
   @include nb-theme-global();
 }
 
-;
+nav {
+  width: 100%;
+}
 /* You can add global styles to this file, and also import other style files */
