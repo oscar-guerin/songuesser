@@ -1,0 +1,8 @@
+<div class="flex justify-end">
+  <nb-user *ngIf="currentUser$ | async as user"
+           [nbContextMenu]="menuItems"
+           name="{{ user.displayName }}"
+           nbContextMenuTag="user-context-menu"
+           picture="{{ user.images.length > 0 ? user.images[0].url : '' }}">
+  </nb-user>
+</div>

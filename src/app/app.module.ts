@@ -8,16 +8,17 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { CoreModule } from './modules/@core/core.module';
 import { SignComponent } from './components/sign/sign.component';
 import { SystemModule } from './modules/@system/system.module';
-import { LayoutComponent } from './components/layout/layout.component';
 import { NgxHttpRepositoryModule } from '@witty-services/ngx-http-repository';
 import { NgxRepositoryModule } from '@witty-services/ngx-repository';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbMenuModule, NbThemeModule } from '@nebular/theme';
+import { SharedModule } from './modules/@shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     CallbackComponent,
-    SignComponent,
-    LayoutComponent
+    SignComponent
   ],
   imports: [
     BrowserModule,
@@ -25,14 +26,19 @@ import { NgxRepositoryModule } from '@witty-services/ngx-repository';
     HttpClientModule,
     CoreModule,
     SystemModule,
+    SharedModule,
     NgxHttpRepositoryModule,
     NgxRepositoryModule.forRoot({
       normalizerConfiguration: {
         normalizeNull: true
       }
     }),
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({name: 'cosmic'}),
+    NbMenuModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  template: `
-    <router-outlet></router-outlet>`
+  templateUrl: './layout.component.html'
 })
 export class LayoutComponent {
 }

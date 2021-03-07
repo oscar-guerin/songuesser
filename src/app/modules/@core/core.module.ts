@@ -1,14 +1,13 @@
 import { NgModule, Provider } from '@angular/core';
 import { TrackService } from './services/track.service';
+import { UserService } from './services/user.service';
 
 const SERVICES: Provider[] = [
-  TrackService
+  TrackService,
+  UserService
 ];
 
 @NgModule({
-  imports: [],
-  exports: [],
-  declarations: [],
   providers: [
     ...SERVICES
   ],

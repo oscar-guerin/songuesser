@@ -4,7 +4,7 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { SignComponent } from './components/sign/sign.component';
 import { HomeModule } from './modules/home/home.module';
 import { AuthGuard } from './modules/@system/guards/auth.guard';
-import { LayoutComponent } from './components/layout/layout.component';
+import { LayoutComponent } from './modules/@shared/components/layout/layout.component';
 
 const routes: Routes = [
   {

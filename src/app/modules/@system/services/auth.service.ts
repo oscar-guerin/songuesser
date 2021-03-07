@@ -23,7 +23,7 @@ export class AuthService {
   public constructor(private readonly http: HttpClient) {
 
     this.refreshToken$.next(localStorage.getItem(this.SPOTIFY_REFRESH_TOKEN_KEY));
-
+    // TODO refresh token before expiration
     this.authToken$ = this.refreshToken$.pipe(
       switchMap((refreshToken: string) => refreshToken ? this.refreshToken(refreshToken) : of(null)),
       softCache()
