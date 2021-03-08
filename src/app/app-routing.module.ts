@@ -5,6 +5,7 @@ import { SignComponent } from './components/sign/sign.component';
 import { HomeModule } from './modules/home/home.module';
 import { AuthGuard } from './modules/@system/guards/auth.guard';
 import { LayoutComponent } from './modules/@shared/components/layout/layout.component';
+import { LauncherModule } from './modules/launcher/launcher.module';
 
 const routes: Routes = [
   {
@@ -20,7 +21,13 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: (): Promise<HomeModule> => import('./modules/home/home.module').then((value: { HomeModule: HomeModule }) => value.HomeModule)
+        loadChildren: (): Promise<HomeModule> =>
+          import('./modules/home/home.module').then((value: { HomeModule: HomeModule }) => value.HomeModule)
+      },
+      {
+        path: 'launcher',
+        loadChildren: (): Promise<LauncherModule> =>
+          import('./modules/launcher/launcher.module').then((value: { LauncherModule: LauncherModule }) => value.LauncherModule)
       },
       {
         path: '**',
@@ -48,4 +55,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

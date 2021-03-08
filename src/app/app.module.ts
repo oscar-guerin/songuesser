@@ -34,7 +34,7 @@ import { SharedModule } from './modules/@shared/shared.module';
       }
     }),
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({name: 'cosmic'}),
+    NbThemeModule.forRoot({name: 'songuesser'}),
     NbMenuModule.forRoot(),
   ],
   providers: [],

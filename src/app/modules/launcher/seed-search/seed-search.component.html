@@ -1,0 +1,23 @@
+<ng-select [(ngModel)]="selectedResult"
+           [hideSelected]="true"
+           [items]="results$ | async"
+           [loading]="loading"
+           [minTermLength]="2"
+           [trackByFn]="trackByFn"
+           [typeahead]="query$"
+           bindLabel="name"
+           typeToSearchText="Please enter 2 or more characters">
+  <ng-template let-item="item"
+               ng-option-tmp>
+    <div class="flex">
+      <img [src]="item.album.images[0].url"
+           alt="Album"
+           class="rounded-full"
+           height="32"
+           width="32"/>
+      <span>
+        {{ item.name }}
+      </span>
+    </div>
+  </ng-template>
+</ng-select>

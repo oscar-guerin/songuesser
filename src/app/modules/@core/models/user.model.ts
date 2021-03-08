@@ -1,11 +1,6 @@
 import { HttpResource } from '@witty-services/ngx-http-repository';
 import { Column, Id } from '@witty-services/ngx-repository';
-
-export class Image {
-
-  @Column()
-  public url: string;
-}
+import { Image } from './image.model';
 
 @HttpResource({
   read: '/spotify/me'

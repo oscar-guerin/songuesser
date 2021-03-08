@@ -22,6 +22,7 @@
     "@angular/router": "~11.2.3",
     "@nebular/eva-icons": "7.0.0",
     "@nebular/theme": "^7.0.0",
+    "@ng-select/ng-select": "^6.1.0",
     "@witty-services/ngx-http-repository": "^2.0.5",
     "@witty-services/ngx-repository": "^2.0.5",
     "@witty-services/rxjs-common": "^1.0.8",
