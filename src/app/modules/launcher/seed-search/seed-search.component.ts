@@ -3,7 +3,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { SearchService } from '../../@core/services/search.service';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Track } from '../../@core/models/track.model';
-import { log, onAny } from '@witty-services/rxjs-common';
+import { onAny } from '@witty-services/rxjs-common';
 
 @Component({
   selector: 'sgr-seed-search',
@@ -22,7 +22,6 @@ export class SeedSearchComponent {
       debounceTime(300),
       distinctUntilChanged(),
       onAny(() => this.loading = true),
-      log(1),
       switchMap((query: string) => !!query ? searchService.tracks(query) : of([])),
       onAny(() => this.loading = false)
     );

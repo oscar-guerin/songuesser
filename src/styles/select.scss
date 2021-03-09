@@ -1,0 +1,18 @@
+.ng-select-container {
+  background-color: #e7e7e744;
+  border-radius: 0.375em;
+  padding: 8px;
+}
+
+.ng-select-opened .ng-select-container {
+  border: 1px #c1c1c1 solid;
+}
+
+.ng-dropdown-panel {
+  background-color: #ffffff;
+  border: 1px #c1c1c1 solid;
+  border-radius: 0.375em;
+  padding: 0.75rem;
+  margin-top: 4px;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+}
