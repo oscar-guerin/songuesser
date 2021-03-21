@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { ArtistPipe } from './pipes/artist.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 const NEBULAR: any[] = [
   NbLayoutModule,
@@ -34,6 +35,7 @@ const PIPES: any[] = [
     RouterModule,
     NgSelectModule,
     FormsModule,
+    TranslateModule,
     ...NEBULAR,
   ],
   exports: [
@@ -42,6 +44,7 @@ const PIPES: any[] = [
     ...NEBULAR,
     NgSelectModule,
     FormsModule,
+    TranslateModule
   ],
   declarations: [
     ...COMPONENTS,

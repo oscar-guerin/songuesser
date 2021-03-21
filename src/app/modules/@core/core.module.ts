@@ -1,4 +1,4 @@
-import { NgModule, Provider } from '@angular/core';
+import { NgModule, Optional, Provider, SkipSelf } from '@angular/core';
 import { TrackService } from './services/track.service';
 import { UserService } from './services/user.service';
 import { SearchService } from './services/search.service';
@@ -21,4 +21,10 @@ const SERVICES: Provider[] = [
   ],
 })
 export class CoreModule {
+
+  public constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+    if (parentModule) {
+      throw new Error('CoreModule is already loaded. Import it in the AppModule only');
+    }
+  }
 }

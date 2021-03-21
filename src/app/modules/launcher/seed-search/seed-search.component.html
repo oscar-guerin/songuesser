@@ -7,7 +7,8 @@
            [typeahead]="query$"
            bindLabel="name"
            appendTo="body"
-           typeToSearchText="Please enter 2 or more characters">
+           placeholder="{{ 'launcher.search' | translate }}"
+           typeToSearchText="{{ 'shared.type_2_chars' | translate }}">
   <ng-template let-item="item"
                ng-option-tmp>
     <div class="flex px-3 py-2">

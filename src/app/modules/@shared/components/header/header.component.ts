@@ -7,6 +7,7 @@ import { NbMenuBag, NbMenuItem, NbMenuService } from '@nebular/theme';
 import { filter, first } from 'rxjs/operators';
 import { AuthService } from '../../../@system/services/auth.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'sgr-header',
@@ -24,7 +25,7 @@ export class HeaderComponent {
 
   public readonly menuItems: NbMenuItem[] = [
     {
-      title: 'Logout',
+      title: this.translateService.instant('shared.logout'),
       icon: 'unlock-outline',
     },
   ];
@@ -32,6 +33,7 @@ export class HeaderComponent {
   public constructor(private readonly userService: UserService,
                      private readonly nbMenuService: NbMenuService,
                      private readonly authService: AuthService,
+                     private readonly translateService: TranslateService,
                      private readonly router: Router) {
     this.currentUser$ = userService.getCurrentUser().pipe(
       softCache()
