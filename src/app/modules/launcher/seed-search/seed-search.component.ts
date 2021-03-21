@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { SearchService } from '../../@core/services/search.service';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Track } from '../../@core/models/track.model';
 import { onAny } from '@witty-services/rxjs-common';
+import { OnAttributeChange } from '@witty-services/ngx-common';
 
 @Component({
   selector: 'sgr-seed-search',
   templateUrl: 'seed-search.component.html'
 })
 export class SeedSearchComponent {
+
+  @OnAttributeChange('selectedResult')
+  @Output()
+  public readonly seed$: Observable<Track>;
 
   public loading: boolean = false;
   public selectedResult: Track;

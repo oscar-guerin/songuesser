@@ -1,5 +1,10 @@
 <nb-card>
   <nb-card-body>
-    <sgr-seed-search></sgr-seed-search>
+    <sgr-seed-search (seed$)="onSeed($event)"></sgr-seed-search>
+    <button (click)="launch()"
+            nbButton
+            outline>
+      Launch game
+    </button>
   </nb-card-body>
 </nb-card>

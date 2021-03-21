@@ -22,4 +22,12 @@ export class Track {
 
   @Column('preview_url')
   public previewUrl: string;
+
+  public static getId(track: Track): string {
+    return track.id;
+  }
+
+  public static hasPreviewUrl(track: Track): boolean {
+    return !!track.previewUrl;
+  }
 }

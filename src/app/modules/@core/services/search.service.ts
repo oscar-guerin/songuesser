@@ -1,6 +1,6 @@
 import { InjectRepository } from '@witty-services/ngx-repository';
 import { HttpRepository } from '@witty-services/ngx-http-repository';
-import { Search } from '../models/search-result.model';
+import { Search } from '../models/search.model';
 import { SearchQuery } from '../queries/search.query';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
