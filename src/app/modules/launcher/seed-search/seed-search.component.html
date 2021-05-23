@@ -5,11 +5,11 @@
            [minTermLength]="2"
            [trackByFn]="trackByFn"
            [typeahead]="query$"
-           bindLabel="name"
            appendTo="body"
            placeholder="{{ 'launcher.search' | translate }}"
            typeToSearchText="{{ 'shared.type_2_chars' | translate }}">
   <ng-template let-item="item"
+               ng-label-tmp
                ng-option-tmp>
     <div class="flex px-3 py-2">
       <img [src]="item.album.images[0].url"
@@ -18,10 +18,10 @@
            height="32"
            width="32"/>
       <span class="flex flex-col pl-3">
-        <span>
+        <span class="text-base">
           {{ item.name }}
         </span>
-        <span class="text-sm">
+        <span class="text-sm font-light">
           {{ item.artists | artist }}
         </span>
       </span>

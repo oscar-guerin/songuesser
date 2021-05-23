@@ -29,6 +29,7 @@
     "@witty-services/ngx-http-repository": "^2.0.5",
     "@witty-services/ngx-repository": "^2.0.5",
     "@witty-services/rxjs-common": "^1.0.8",
+    "angular-svg-round-progressbar": "^6.0.0",
     "autoprefixer": "^10.2.5",
     "dayjs": "^1.10.4",
     "eva-icons": "^1.1.2",

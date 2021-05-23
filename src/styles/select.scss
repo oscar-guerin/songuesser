@@ -9,18 +9,33 @@
 }
 
 .ng-dropdown-panel {
-  background-color: #ffffff;
+  background-color: #ffffffee;
   border: 1px #c1c1c1 solid;
   border-radius: 0.375em;
   padding: 0.75rem;
   margin-top: 4px;
   font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 1rem;
 }
 
 .ng-placeholder {
   color: #bbbbbb;
 }
 
+.ng-input {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .ng-input input {
-  padding-left: 8px;
+  padding-left: 8px !important;
+}
+
+.ng-has-value .ng-placeholder {
+  display: none;
+}
+
+.ng-select .ng-clear-wrapper {
+  display: flex;
+  align-items: center;
 }

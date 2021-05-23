@@ -1,5 +1,7 @@
 <nb-card>
   <nb-card-body>
-    {{ (currentTrack$ | async)?.name }}
+    <sgr-track-player [reveal]="reveal$ | async"
+                      [track]="currentTrack$ | async">
+    </sgr-track-player>
   </nb-card-body>
 </nb-card>
