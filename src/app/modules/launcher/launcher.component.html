@@ -1,10 +1,44 @@
+<h1 class="mb-10">{{ 'launcher.title' | translate }}</h1>
 <nb-card>
+  <nb-card-header>
+    <h2>
+      {{ 'launcher.define_theme' | translate }}
+    </h2>
+  </nb-card-header>
   <nb-card-body>
     <sgr-seed-search (seed$)="onSeed($event)"></sgr-seed-search>
-    <button (click)="launch()"
-            nbButton
-            outline>
-      {{ 'game.launch' | translate }}
-    </button>
   </nb-card-body>
 </nb-card>
+<nb-card>
+  <nb-card-header>
+    <h2>
+      {{ 'launcher.add_players' | translate }}
+    </h2>
+  </nb-card-header>
+  <nb-card-body class="flex flex-col">
+    <div *ngFor="let control of playerNamesForm.controls; let i = index"
+         class="mb-2 flex justify-between w-1/2">
+      <input [formControl]="playerNamesForm.controls[i]"
+             [status]="control.value ? 'success' : 'basic'"
+             aria-label="player-name-{{ i }}"
+             class="flex-grow mr-2"
+             nbInput
+             placeholder="{{ 'launcher.add_player' | translate }}"
+             type="text"/>
+      <button (click)="removePlayerName(i)"
+              [disabled]="removePlayerNameDisabled$ | async"
+              ghost
+              nbButton
+              status="danger">
+        <nb-icon icon="trash-outline"></nb-icon>
+      </button>
+    </div>
+  </nb-card-body>
+</nb-card>
+<button (click)="launch()"
+        fullWidth
+        nbButton
+        status="success">
+  <nb-icon icon="play-circle-outline"></nb-icon>
+  {{ 'game.launch' | translate }}
+</button>

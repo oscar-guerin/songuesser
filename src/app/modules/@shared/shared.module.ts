@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NbButtonModule, NbCardModule, NbContextMenuModule, NbInputModule, NbLayoutModule, NbUserModule } from '@nebular/theme';
+import {
+  NbButtonModule,
+  NbCardModule,
+  NbContextMenuModule,
+  NbIconModule,
+  NbInputModule,
+  NbLayoutModule,
+  NbUserModule
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -17,7 +25,8 @@ const NEBULAR: any[] = [
   NbContextMenuModule,
   NbInputModule,
   NbButtonModule,
-  NbCardModule
+  NbCardModule,
+  NbIconModule
 ];
 
 const COMPONENTS: any[] = [

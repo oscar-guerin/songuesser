@@ -1,0 +1,31 @@
+<nb-card>
+  <nb-card-header>
+    <h2>
+      {{ 'game.update_score.' + type | translate }}
+    </h2>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="flex flex-col">
+      <button (click)="updateScore(player)"
+              *ngFor="let player of players"
+              class="pb-3"
+              nbButton
+              outline
+              size="large"
+              status="primary">
+        <nb-user name="{{ player.name }}"
+                 onlyPicture>
+        </nb-user>
+        {{ player.name }}
+      </button>
+      <button (click)="done()"
+              nbButton
+              outline
+              size="large"
+              status="primary">
+        <nb-icon icon="minus-circle-outline"></nb-icon>
+        {{ 'game.update_score.nobody' | translate }}
+      </button>
+    </div>
+  </nb-card-body>
+</nb-card>

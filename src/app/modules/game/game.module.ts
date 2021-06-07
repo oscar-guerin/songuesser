@@ -5,10 +5,16 @@ import { GameRoutingModule } from './game-routing.module';
 import { GameComponent } from './game.component';
 import { TrackPlayerComponent } from './track-player/track-player.component';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
+import { UpdateScoreComponent } from './update-score/update-score.component';
+import { TrackHistoryComponent } from './track-history/track-history.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 const COMPONENTS: any[] = [
   GameComponent,
-  TrackPlayerComponent
+  TrackPlayerComponent,
+  UpdateScoreComponent,
+  TrackHistoryComponent,
+  ScoreboardComponent
 ];
 
 @NgModule({

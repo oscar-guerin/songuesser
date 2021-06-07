@@ -1,7 +1,15 @@
-<nb-card>
-  <nb-card-body>
-    <sgr-track-player [reveal]="reveal$ | async"
-                      [track]="currentTrack$ | async">
-    </sgr-track-player>
-  </nb-card-body>
-</nb-card>
+<sgr-track-player [reveal]="reveal$ | async"
+                  [track]="currentTrack$ | async">
+</sgr-track-player>
+<div class="grid grid-cols-2 gap-5">
+  <sgr-update-score [players]="players$ | async"
+                    type="song">
+  </sgr-update-score>
+  <sgr-update-score [players]="players$ | async"
+                    type="artist">
+  </sgr-update-score>
+</div>
+<div class="grid grid-cols-2 gap-5">
+  <sgr-scoreboard [players]="players$ | async"></sgr-scoreboard>
+  <sgr-track-history [tracks]="trackHistory$ | async"></sgr-track-history>
+</div>

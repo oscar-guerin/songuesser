@@ -1,0 +1,16 @@
+<nb-card>
+  <nb-card-header>
+    <h2>
+      {{ 'game.scoreboard.title' | translate }}
+    </h2>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="flex flex-col">
+      <div *ngFor="let player of players"
+           class="flex justify-between">
+        <strong>{{ player.name }}</strong>
+        <span>{{ player.score }}</span>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

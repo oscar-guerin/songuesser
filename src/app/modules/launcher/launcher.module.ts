@@ -4,6 +4,7 @@ import { LauncherRoutingModule } from './launcher-routing.module';
 import { LauncherComponent } from './launcher.component';
 import { SeedSearchComponent } from './seed-search/seed-search.component';
 import { SharedModule } from '../@shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const COMPONENTS: any[] = [
   LauncherComponent,
@@ -14,7 +15,8 @@ const COMPONENTS: any[] = [
   imports: [
     CommonModule,
     LauncherRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [],
   declarations: [

@@ -3,7 +3,9 @@ import { GameService } from '../@core/services/game.service';
 import { from, interval, merge, Observable, zip } from 'rxjs';
 import { Track } from '../@core/models/track.model';
 import { delay, map, startWith, switchMap } from 'rxjs/operators';
-import { softCache } from '@witty-services/rxjs-common';
+import { softCache, toHotArray } from '@witty-services/rxjs-common';
+import { Player } from '../@core/models/player.model';
+import { reverse } from 'lodash';
 
 @Component({
   templateUrl: './game.component.html'
@@ -11,7 +13,9 @@ import { softCache } from '@witty-services/rxjs-common';
 export class GameComponent {
 
   public readonly currentTrack$: Observable<Track>;
+  public readonly players$: Observable<Player[]>;
   public readonly reveal$: Observable<boolean>;
+  public readonly trackHistory$: Observable<Track[]>;
 
   public constructor(private readonly gameService: GameService) {
     const tracks$: Observable<Track[]> = gameService.getTracks().pipe(
@@ -26,7 +30,8 @@ export class GameComponent {
         startWith(0)
       ),
     ).pipe(
-      map(([track, _]: [Track, number]) => track)
+      map(([track, _]: [Track, number]) => track),
+      softCache()
     );
 
     this.reveal$ = merge(
@@ -37,6 +42,18 @@ export class GameComponent {
         delay(20000),
         map(() => true)
       )
+    ).pipe(
+      softCache()
+    );
+
+    this.players$ = gameService.getPlayers().pipe(
+      softCache()
+    );
+
+    this.trackHistory$ = this.currentTrack$.pipe(
+      toHotArray(),
+      map(reverse),
+      map((tracks: Track[]) => tracks.slice(1))
     );
   }
 }

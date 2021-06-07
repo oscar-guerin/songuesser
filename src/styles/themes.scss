@@ -78,5 +78,7 @@ $nb-themes: nb-register-theme((
   color-danger-transparent-400: rgba(255, 94, 123, 0.32),
   color-danger-transparent-500: rgba(255, 94, 123, 0.4),
   color-danger-transparent-600: rgba(255, 94, 123, 0.48),
-  font-family-primary: 'Montserrat'
+  font-family-primary: 'Montserrat',
+  input-medium-text-font-weight: 500,
+  text-heading-2-font-size: 1.4rem
 ), songuesser, default);
