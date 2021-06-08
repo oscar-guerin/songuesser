@@ -4,11 +4,11 @@ import { LauncherService } from '../@core/services/launcher.service';
 import { GameService } from '../@core/services/game.service';
 import { FormArray, FormBuilder, FormControl } from '@angular/forms';
 import { UserService } from '../@core/services/user.service';
-import { first, map } from 'rxjs/operators';
+import { first, map, startWith } from 'rxjs/operators';
 import { User } from '../@core/models/user.model';
 import { OnDestroyListener, takeUntilDestroy } from '@witty-services/ngx-common';
-import { last } from 'lodash';
-import { Observable } from 'rxjs';
+import { compact } from 'lodash';
+import { combineLatest, Observable } from 'rxjs';
 import { softCache } from '@witty-services/rxjs-common';
 
 @OnDestroyListener()
@@ -18,6 +18,7 @@ import { softCache } from '@witty-services/rxjs-common';
 export class LauncherComponent {
 
   public readonly removePlayerNameDisabled$: Observable<boolean>;
+  public readonly launchDisabled$: Observable<boolean>;
 
   public readonly playerNamesForm: FormArray;
 
@@ -32,13 +33,32 @@ export class LauncherComponent {
       softCache()
     );
 
+    this.launchDisabled$ = combineLatest([
+      this.launcherService.getSeedTracks(),
+      this.playerNamesForm.valueChanges.pipe(
+        startWith(this.playerNamesForm.value as string[])
+      )
+    ]).pipe(
+      map(([tracks, playerNames]: [Track[], string[]]) =>
+        !tracks || !playerNames || tracks.length === 0 || compact(playerNames).length < 2
+      ),
+      softCache()
+    );
+
     this.userService.getCurrentUser().pipe(
       first()
-    ).subscribe((user: User) => this.playerNamesForm.push(new FormControl(user.displayName)));
+    ).subscribe((user: User) =>
+      this.playerNamesForm.length > 0 ?
+        this.playerNamesForm.at(0).setValue(user.displayName) :
+        this.playerNamesForm.push(new FormControl(user.displayName))
+    );
 
     this.playerNamesForm.valueChanges.pipe(
+      startWith(this.playerNamesForm.value as string[]),
       takeUntilDestroy(this)
-    ).subscribe((value: string[]) => !!last(value) ? this.playerNamesForm.push(new FormControl()) : void 0);
+    ).subscribe((value: string[]) =>
+      compact(value).length === value.length ? this.playerNamesForm.push(new FormControl()) : void 0
+    );
   }
 
   public removePlayerName(index: number): void {
@@ -52,7 +72,7 @@ export class LauncherComponent {
   }
 
   public launch(): void {
-    this.launcherService.setPlayerNames(this.playerNamesForm.value);
+    this.launcherService.setPlayerNames(compact(this.playerNamesForm.value));
     this.gameService.launch();
   }
 }

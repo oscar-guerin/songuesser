@@ -1,9 +1,12 @@
 <h1 class="mb-10">{{ 'launcher.title' | translate }}</h1>
 <nb-card>
   <nb-card-header>
-    <h2>
-      {{ 'launcher.define_theme' | translate }}
-    </h2>
+    <sgr-card-title cardTitle="launcher.define_theme"
+                    icon="music-outline">
+    </sgr-card-title>
+    <small class="text-xs font-light">
+      {{ 'launcher.seed_search_description' | translate }}
+    </small>
   </nb-card-header>
   <nb-card-body>
     <sgr-seed-search (seed$)="onSeed($event)"></sgr-seed-search>
@@ -11,9 +14,12 @@
 </nb-card>
 <nb-card>
   <nb-card-header>
-    <h2>
-      {{ 'launcher.add_players' | translate }}
-    </h2>
+    <sgr-card-title cardTitle="launcher.add_players"
+                    icon="people-outline">
+    </sgr-card-title>
+    <small class="text-xs font-light">
+      {{ 'launcher.add_players_description' | translate }}
+    </small>
   </nb-card-header>
   <nb-card-body class="flex flex-col">
     <div *ngFor="let control of playerNamesForm.controls; let i = index"
@@ -35,10 +41,13 @@
     </div>
   </nb-card-body>
 </nb-card>
-<button (click)="launch()"
-        fullWidth
-        nbButton
-        status="success">
-  <nb-icon icon="play-circle-outline"></nb-icon>
-  {{ 'game.launch' | translate }}
-</button>
+<div nbTooltip="{{ (launchDisabled$ | async) ? ('launcher.launch_disabled_tooltip' | translate) : ('game.launch' | translate) }}">
+  <button (click)="launch()"
+          [disabled]="launchDisabled$ | async"
+          fullWidth
+          nbButton
+          status="success">
+    <nb-icon icon="play-circle-outline"></nb-icon>
+    {{ 'game.launch' | translate }}
+  </button>
+</div>

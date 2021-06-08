@@ -8,6 +8,7 @@ import {
   NbIconModule,
   NbInputModule,
   NbLayoutModule,
+  NbTooltipModule,
   NbUserModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
@@ -17,6 +18,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { ArtistPipe } from './pipes/artist.pipe';
 import { TranslateModule } from '@ngx-translate/core';
+import { CardTitleComponent } from './components/card-title/card-title.component';
 
 const NEBULAR: any[] = [
   NbLayoutModule,
@@ -26,12 +28,14 @@ const NEBULAR: any[] = [
   NbInputModule,
   NbButtonModule,
   NbCardModule,
-  NbIconModule
+  NbIconModule,
+  NbTooltipModule
 ];
 
 const COMPONENTS: any[] = [
   LayoutComponent,
-  HeaderComponent
+  HeaderComponent,
+  CardTitleComponent
 ];
 
 const PIPES: any[] = [

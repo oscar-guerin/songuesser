@@ -46,4 +46,10 @@ export class GameService {
         score: playerToUpdate.score + score
       }) : player));
   }
+
+  public canGameStart(): Observable<boolean> {
+    return this.players$.pipe(
+      map((players: Player[]) => !!players && players.length > 1),
+    );
+  }
 }

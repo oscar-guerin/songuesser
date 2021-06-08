@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Track } from '../../@core/models/track.model';
 import { OnAttributeChange, OnDestroyListener, takeUntilDestroy } from '@witty-services/ngx-common';
 import { interval, Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { map, switchMap, take } from 'rxjs/operators';
   selector: 'sgr-track-player',
   templateUrl: 'track-player.component.html'
 })
-export class TrackPlayerComponent {
+export class TrackPlayerComponent implements OnDestroy {
 
   @Input()
   public track: Track;
@@ -21,6 +21,8 @@ export class TrackPlayerComponent {
   public readonly track$: Observable<Track>;
 
   public readonly timer$: Observable<number>;
+
+  public audio: HTMLAudioElement;
 
   public constructor() {
     this.timer$ = this.track$.pipe(
@@ -36,8 +38,14 @@ export class TrackPlayerComponent {
       ifNotNull()
     ).subscribe((track: Track) => {
       this.reveal = false;
-      const audio: HTMLAudioElement = new Audio(track.previewUrl);
-      audio.play();
+      this.audio = new Audio(track.previewUrl);
+      this.audio.play();
     });
+  }
+
+  public ngOnDestroy(): void {
+    if (!!this.audio) {
+      this.audio.pause();
+    }
   }
 }

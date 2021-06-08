@@ -16,6 +16,26 @@ import { TranslateService } from '@ngx-translate/core';
     :host {
       display: block;
       width: 100%;
+      padding-left: 1.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    a:hover {
+      border-bottom: 2px solid var(--color-primary-500);
+    }
+
+    a nb-icon {
+      font-size: 1.5rem;
+    }
+
+    a span {
+      color: var(--color-primary-500);
+      font-weight: bold;
     }
   `]
 })

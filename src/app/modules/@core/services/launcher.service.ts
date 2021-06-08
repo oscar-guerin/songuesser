@@ -11,7 +11,7 @@ export class LauncherService {
   private readonly playerNames$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
   public addSeedTrack(track: Track): void {
-    this.seedTracks$.next([...this.seedTracks$.getValue(), track]);
+    this.seedTracks$.next([track]);
   }
 
   public getSeedTracks(): Observable<Track[]> {

@@ -1,4 +1,14 @@
-<div class="flex justify-end">
+<div class="flex justify-between">
+  <a class="flex items-center"
+     routerLink="/home">
+    <nb-icon class="mr-2"
+             icon="home-outline"
+             status="primary">
+    </nb-icon>
+    <span>
+      {{ 'header.home' | translate | uppercase }}
+    </span>
+  </a>
   <nb-user *ngIf="currentUser$ | async as user"
            [nbContextMenu]="menuItems"
            name="{{ user.displayName }}"

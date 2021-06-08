@@ -8,7 +8,12 @@ import { OnAttributeChange } from '@witty-services/ngx-common';
 
 @Component({
   selector: 'sgr-seed-search',
-  templateUrl: 'seed-search.component.html'
+  templateUrl: 'seed-search.component.html',
+  styles: [`
+    :host {
+      display: block;
+    }
+  `]
 })
 export class SeedSearchComponent {
 
