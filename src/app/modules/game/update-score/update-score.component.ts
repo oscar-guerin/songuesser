@@ -11,10 +11,13 @@ export class UpdateScoreComponent {
   @Input()
   public type: 'song' | 'artist';
   @Input()
+  public disableControls: boolean = false;
+  @Input()
   public players: Player[];
 
   @Output()
   public readonly done$: EventEmitter<void> = new EventEmitter<void>();
+
 
   public constructor(private readonly gameService: GameService) {
   }
@@ -26,5 +29,6 @@ export class UpdateScoreComponent {
 
   public done(): void {
     this.done$.emit();
+    this.disableControls = true;
   }
 }

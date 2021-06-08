@@ -2,10 +2,18 @@
                   [track]="currentTrack$ | async">
 </sgr-track-player>
 <div class="grid grid-cols-2 gap-5">
-  <sgr-update-score [players]="players$ | async"
+  <sgr-update-score (done$)="showSongUpdateScoreCard = false"
+                    [class.opacity-30]="!showSongUpdateScoreCard"
+                    [disableControls]="!showSongUpdateScoreCard"
+                    [players]="players$ | async"
+                    class="transition-opacity duration-300"
                     type="song">
   </sgr-update-score>
-  <sgr-update-score [players]="players$ | async"
+  <sgr-update-score (done$)="showArtistUpdateScoreCard = false"
+                    [class.opacity-30]="!showArtistUpdateScoreCard"
+                    [disableControls]="!showArtistUpdateScoreCard"
+                    [players]="players$ | async"
+                    class="transition-opacity duration-300"
                     type="artist">
   </sgr-update-score>
 </div>

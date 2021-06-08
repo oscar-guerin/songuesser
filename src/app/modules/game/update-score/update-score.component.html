@@ -8,6 +8,7 @@
     <div class="flex flex-col">
       <button (click)="updateScore(player)"
               *ngFor="let player of players"
+              [disabled]="disableControls"
               class="mb-3"
               nbButton
               outline
@@ -16,6 +17,7 @@
         {{ player.name }}
       </button>
       <button (click)="done()"
+              [disabled]="disableControls"
               nbButton
               outline
               size="large"

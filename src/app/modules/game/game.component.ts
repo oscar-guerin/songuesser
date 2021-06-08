@@ -7,11 +7,16 @@ import { softCache, toHotArray } from '@witty-services/rxjs-common';
 import { Player } from '../@core/models/player.model';
 import { reverse } from 'lodash';
 import { Router } from '@angular/router';
+import { OnDestroyListener, takeUntilDestroy } from '@witty-services/ngx-common';
 
+@OnDestroyListener()
 @Component({
   templateUrl: './game.component.html'
 })
 export class GameComponent {
+
+  public showSongUpdateScoreCard: boolean = true;
+  public showArtistUpdateScoreCard: boolean = true;
 
   public readonly currentTrack$: Observable<Track>;
   public readonly players$: Observable<Player[]>;
@@ -61,5 +66,12 @@ export class GameComponent {
     this.gameService.canGameStart().pipe(
       first()
     ).subscribe((value: boolean) => !value ? router.navigate(['/', 'app', 'launcher']) : void 0);
+
+    this.reveal$.pipe(
+      takeUntilDestroy(this)
+    ).subscribe((reveal: boolean) => {
+      this.showSongUpdateScoreCard = reveal;
+      this.showArtistUpdateScoreCard = reveal;
+    });
   }
 }
