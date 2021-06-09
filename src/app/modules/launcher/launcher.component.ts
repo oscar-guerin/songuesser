@@ -19,7 +19,6 @@ export class LauncherComponent {
 
   public readonly removePlayerNameDisabled$: Observable<boolean>;
   public readonly launchDisabled$: Observable<boolean>;
-
   public readonly playerNamesForm: FormArray;
 
   public constructor(private readonly launcherService: LauncherService,

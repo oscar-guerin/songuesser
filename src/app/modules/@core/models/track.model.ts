@@ -23,6 +23,10 @@ export class Track {
   @Column('preview_url')
   public previewUrl: string;
 
+  public constructor(data: Partial<Track> = {}) {
+    Object.assign(this, data);
+  }
+
   public static getId(track: Track): string {
     return track.id;
   }
