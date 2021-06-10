@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { GameService } from '../@core/services/game.service';
-import { from, interval, merge, Observable, zip } from 'rxjs';
+import { combineLatest, from, interval, merge, Observable, zip } from 'rxjs';
 import { Track } from '../@core/models/track.model';
-import { delay, first, map, startWith, switchMap } from 'rxjs/operators';
+import { delay, first, map, scan, startWith, switchMap } from 'rxjs/operators';
 import { softCache, toHotArray } from '@witty-services/rxjs-common';
 import { Player } from '../@core/models/player.model';
 import { reverse } from 'lodash';
@@ -22,10 +22,16 @@ export class GameComponent {
   public readonly players$: Observable<Player[]>;
   public readonly reveal$: Observable<boolean>;
   public readonly trackHistory$: Observable<Track[]>;
+  public readonly remainingTracks$: Observable<number>;
 
   public constructor(private readonly gameService: GameService,
                      private readonly router: Router) {
     const tracks$: Observable<Track[]> = gameService.getTracks().pipe(
+      softCache()
+    );
+
+    const totalTracks$: Observable<number> = tracks$.pipe(
+      map((tracks: Track[]) => tracks.length),
       softCache()
     );
 
@@ -40,6 +46,17 @@ export class GameComponent {
       map(([track, _]: [Track, number]) => track),
       softCache()
     );
+
+    this.remainingTracks$ = combineLatest([
+      totalTracks$,
+      this.currentTrack$.pipe(
+        scan((acc: number) => acc + 1, -1)
+      )
+    ]).pipe(
+      map(([total, decrement]: number[]) => total - decrement),
+      softCache()
+    );
+
 
     this.reveal$ = merge(
       this.currentTrack$.pipe(
