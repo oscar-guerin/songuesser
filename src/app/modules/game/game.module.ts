@@ -8,13 +8,15 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { UpdateScoreComponent } from './update-score/update-score.component';
 import { TrackHistoryComponent } from './track-history/track-history.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
+import { ResultPageComponent } from './result/result-page.component';
 
 const COMPONENTS: any[] = [
   GameComponent,
   TrackPlayerComponent,
   UpdateScoreComponent,
   TrackHistoryComponent,
-  ScoreboardComponent
+  ScoreboardComponent,
+  ResultPageComponent
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { GameService } from '../@core/services/game.service';
 import { combineLatest, from, interval, merge, Observable, zip } from 'rxjs';
 import { Track } from '../@core/models/track.model';
-import { delay, first, map, scan, startWith, switchMap } from 'rxjs/operators';
+import { delay, filter, first, map, scan, startWith, switchMap } from 'rxjs/operators';
 import { softCache, toHotArray } from '@witty-services/rxjs-common';
 import { Player } from '../@core/models/player.model';
 import { reverse } from 'lodash';
@@ -71,6 +71,7 @@ export class GameComponent {
     );
 
     this.players$ = gameService.getPlayers().pipe(
+      map(Player.leaderboard),
       softCache()
     );
 
@@ -90,5 +91,11 @@ export class GameComponent {
       this.showSongUpdateScoreCard = reveal;
       this.showArtistUpdateScoreCard = reveal;
     });
+
+    this.remainingTracks$.pipe(
+      filter((count: number) => count === 1),
+      delay(32000),
+      first()
+    ).subscribe(() => router.navigate(['/', 'app', 'game', 'result']));
   }
 }

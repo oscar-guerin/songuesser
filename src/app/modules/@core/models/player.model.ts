@@ -1,3 +1,5 @@
+import { maxBy, reverse, sortBy } from 'lodash';
+
 export class Player {
 
   public name: string;
@@ -12,5 +14,13 @@ export class Player {
       name,
       score: 0
     });
+  }
+
+  public static leaderboard(players: Player[]): Player[] {
+    return reverse(sortBy(players, 'score'));
+  }
+
+  public static winner(players: Player[]): string {
+    return maxBy(players, 'score')?.name || '';
   }
 }

@@ -5,6 +5,9 @@ export const fr: any = {
     listen: 'Écoutez...',
     songs_remaining: 'Encore {{songs}} chanson(s) avant la fin de la partie',
     last_song: `C'est la dernière chanson !`,
+    winner_is: 'Le gagnant est {{name}} !',
+    return_home: `Retourner à l'accueil`,
+    new_game: 'Nouvelle partie',
     update_score: {
       song: 'Quel joueur a deviné le titre de la chanson ?',
       artist: `Quel joueur a deviné le nom de l'artiste ?`,
