@@ -7,6 +7,7 @@ import { AuthGuard } from './modules/@system/guards/auth.guard';
 import { LayoutComponent } from './modules/@shared/components/layout/layout.component';
 import { LauncherModule } from './modules/launcher/launcher.module';
 import { GameModule } from './modules/game/game.module';
+import { AboutModule } from './modules/about/about.module';
 
 const routes: Routes = [
   {
@@ -34,6 +35,11 @@ const routes: Routes = [
         path: 'game',
         loadChildren: (): Promise<GameModule> =>
           import('./modules/game/game.module').then((value: { GameModule: GameModule }) => value.GameModule)
+      },
+      {
+        path: 'about',
+        loadChildren: (): Promise<GameModule> =>
+          import('./modules/about/about.module').then((value: { AboutModule: AboutModule }) => value.AboutModule)
       },
       {
         path: '**',

@@ -1,14 +1,28 @@
 <div class="flex justify-between">
-  <a class="flex items-center"
-     routerLink="/home">
-    <nb-icon class="mr-2"
-             icon="home-outline"
-             status="primary">
-    </nb-icon>
-    <span>
+  <div class="flex">
+    <a class="flex items-center mr-5"
+       routerLink="/app/home"
+       routerLinkActive="active">
+      <nb-icon class="mr-2"
+               icon="home-outline"
+               status="primary">
+      </nb-icon>
+      <span>
       {{ 'header.home' | translate | uppercase }}
     </span>
-  </a>
+    </a>
+    <a class="flex items-center"
+       routerLink="/app/about"
+       routerLinkActive="active">
+      <nb-icon class="mr-2"
+               icon="info-outline"
+               status="primary">
+      </nb-icon>
+      <span>
+      {{ 'header.about' | translate | uppercase }}
+    </span>
+    </a>
+  </div>
   <nb-user *ngIf="currentUser$ | async as user"
            [nbContextMenu]="menuItems"
            name="{{ user.displayName }}"

@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { ArtistPipe } from './pipes/artist.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 import { CardTitleComponent } from './components/card-title/card-title.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 const NEBULAR: any[] = [
   NbLayoutModule,
@@ -39,7 +40,8 @@ const COMPONENTS: any[] = [
 ];
 
 const PIPES: any[] = [
-  ArtistPipe
+  ArtistPipe,
+  SafeHtmlPipe
 ];
 
 @NgModule({

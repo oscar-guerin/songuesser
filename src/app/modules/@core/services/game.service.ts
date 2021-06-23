@@ -21,7 +21,7 @@ export class GameService {
       filter((tracks: Track[]) => tracks.length > 0),
       switchMap((seedTracks: Track[]) => recommendationsService.findRecommendations(seedTracks)),
       map((tracks: Track[]) => tracks.filter(Track.hasPreviewUrl)),
-      map((tracks: Track[]) => tracks.slice(0, 2)), // FIXME !!
+      map((tracks: Track[]) => tracks.slice(0, 10)),
       softCache()
     );
 

@@ -1,7 +1,10 @@
-Welcome home
-
 <button [routerLink]="['/', 'app', 'launcher']"
         nbButton
-        outline>
-  {{ 'game.start' | translate }}
+        fullWidth
+        hero
+        size="giant"
+        status="primary">
+  <span class="text-4xl">
+      {{ 'game.start' | translate }}
+  </span>
 </button>
