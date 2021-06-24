@@ -1,41 +1,51 @@
-<h1 class="mb-8">{{ 'about.title' | translate }}</h1>
+<h1 class="mb-10">{{ 'about.title' | translate }}</h1>
 
-<p [innerHTML]="'about.project' | translate | safeHtml">
+<p [innerHTML]="'about.project' | translate | safeHtml"
+   class="mb-4">
+</p>
+<p [innerHTML]="'about.icons' | translate | safeHtml"
+   class="mb-12">
 </p>
 
-<h2 class="my-8">{{ 'about.author' | translate }}</h2>
-<section class="grid grid-cols-3">
-  <div class="flex flex-col items-center">
-    <img alt="Author picture"
-         class="rounded-full mb-3"
-         height="200px"
-         src="/assets/images/author.jpeg"
-         width="200px">
-    <strong class="mb-2">{{ 'about.author_name' | translate }}</strong>
-    <span>{{ 'about.author_job' | translate }}</span>
-  </div>
-  <div class="ml-6 col-span-2">
-    <p [innerHTML]="'about.author_description' | translate | safeHtml"
-       class="mb-4">
-    </p>
-    <p [innerHTML]="'about.author_technical' | translate | safeHtml"
-       class="mb-4"></p>
-    <ul class="mb-4">
-      <li class="mb-3">
-        • <a href="https://github.com/oscar-guerin/songuesser"
-             target="_blank">
-        {{ 'about.git_front' | translate }}
-      </a>
-      </li>
-      <li>
-        • <a href="https://github.com/oscar-guerin/songuesser-server"
-             target="_blank">
-        {{ 'about.git_api' | translate }}
-      </a>
-      </li>
-    </ul>
-    <p [innerHTML]="'about.author_contact' | translate | safeHtml">
-    </p>
-  </div>
-</section>
+<nb-card class="my-12">
+  <nb-card-header>
+    <h2>{{ 'about.author' | translate }}</h2>
+  </nb-card-header>
+  <nb-card-body>
+    <section class="grid grid-cols-3">
+      <div class="flex flex-col items-center">
+        <img alt="Author picture"
+             class="rounded-full mb-3"
+             height="200px"
+             src="/assets/images/author.jpeg"
+             width="200px">
+        <strong class="mb-2">{{ 'about.author_name' | translate }}</strong>
+        <span>{{ 'about.author_job' | translate }}</span>
+      </div>
+      <div class="ml-6 col-span-2 text-justify">
+        <p [innerHTML]="'about.author_description' | translate | safeHtml"
+           class="mb-4">
+        </p>
+        <p [innerHTML]="'about.author_technical' | translate | safeHtml"
+           class="mb-4"></p>
+        <ul class="mb-4">
+          <li class="mb-3">
+            • <a href="https://github.com/oscar-guerin/songuesser"
+                 target="_blank">
+            {{ 'about.git_front' | translate }}
+          </a>
+          </li>
+          <li>
+            • <a href="https://github.com/oscar-guerin/songuesser-server"
+                 target="_blank">
+            {{ 'about.git_api' | translate }}
+          </a>
+          </li>
+        </ul>
+        <p [innerHTML]="'about.author_contact' | translate | safeHtml">
+        </p>
+      </div>
+    </section>
+  </nb-card-body>
+</nb-card>
 

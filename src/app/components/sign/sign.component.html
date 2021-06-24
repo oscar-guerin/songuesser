@@ -1,11 +1,31 @@
 <nb-layout>
-  <nb-layout-header fixed>
-    <!-- Insert header here -->
-  </nb-layout-header>
   <nb-layout-column>
-    <a href="{{ loginUrl }}">Login with spotify</a>
+    <header class="flex items-center">
+      <img alt="Songuesser Icon"
+           class="mr-6"
+           height="64px"
+           src="/assets/images/favicon.png"
+           width="64px">
+      <h1>{{ 'sign.header' | translate }}</h1>
+    </header>
+    <section class="flex flex-col items-center">
+      <h1 class="title text-center mb-6">{{ 'sign.title' | translate }}</h1>
+      <p class="mb-12 text-center">{{ 'sign.description' | translate }}</p>
+      <a class="flex items-center"
+         href="{{ loginUrl }}">
+        <img alt="Spotify Logo"
+             class="mr-5"
+             height="48px"
+             src="/assets/images/spotify.png"
+             width="48px"/>
+        {{ 'sign.login_spotify' | translate | uppercase }}
+      </a>
+    </section>
+    <section class="screenshot-container">
+      <img alt="Screenshot"
+           class="screenshot"
+           src="/assets/images/screenshot.png">
+      <span class="screenshot-launcher-legend">{{ 'sign.screenshot_launcher_legend' | translate }}</span>
+    </section>
   </nb-layout-column>
-  <nb-layout-footer fixed>
-    <!-- Insert footer here -->
-  </nb-layout-footer>
 </nb-layout>

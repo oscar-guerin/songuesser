@@ -2,11 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   templateUrl: './home.component.html',
-  styles: [`
-    button {
-      border: 1px black solid !important;
-    }
-  `]
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
 }

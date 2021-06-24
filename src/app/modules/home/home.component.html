@@ -1,10 +1,22 @@
-<button [routerLink]="['/', 'app', 'launcher']"
-        nbButton
-        fullWidth
-        hero
-        size="giant"
-        status="primary">
+<h1 class="mb-10">{{ 'home.title' | translate }}</h1>
+<section class="flex justify-center">
+  <button [routerLink]="['/', 'app', 'launcher']"
+          hero
+          nbButton
+          shape="round"
+          size="giant"
+          status="primary">
   <span class="text-4xl">
       {{ 'game.start' | translate }}
   </span>
-</button>
+  </button>
+</section>
+<article>
+  <h2 class="my-8">{{ 'home.principle.title' | translate }}</h2>
+  <p [innerHTML]="'home.principle.system' | translate | safeHtml"
+     class="mb-4 text-justify"></p>
+  <p [innerHTML]="'home.principle.songs' | translate | safeHtml"
+     class="mb-4 text-justify"></p>
+  <p [innerHTML]="'home.principle.points' | translate | safeHtml"
+     class="mb-4 text-justify"></p>
+</article>

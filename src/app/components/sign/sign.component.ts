@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
 @Component({
-  templateUrl: './sign.component.html'
+  templateUrl: './sign.component.html',
+  styleUrls: ['./sign.component.scss']
 })
 export class SignComponent {
 

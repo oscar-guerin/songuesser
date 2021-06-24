@@ -35,7 +35,9 @@ export class HeaderComponent {
     );
 
     this.nbMenuService.onItemClick().pipe(
-      filter((menuBag: NbMenuBag) => menuBag.tag === 'user-context-menu' && menuBag.item.title === 'Logout'),
+      filter((menuBag: NbMenuBag) =>
+        menuBag.tag === 'user-context-menu' && menuBag.item.title === this.translateService.instant('shared.logout')
+      ),
       first()
     ).subscribe(() => {
       authService.signOut();

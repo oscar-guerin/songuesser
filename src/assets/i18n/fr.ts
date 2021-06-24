@@ -1,4 +1,26 @@
 export const fr: any = {
+  sign: {
+    header: 'Songuesser',
+    title: 'Songuesser, blind tests sur mesure',
+    description: `Créez des blind tests 100% personnalisés à l'aide de votre compte Spotify et jouez en famille ou entre amis !`,
+    login_spotify: 'Connectez-vous avec Spotify',
+    screenshot_launcher_legend: `Choisissez une chanson thème, renseignez les noms des différents joueurs et commencez la partie !`
+  },
+  home: {
+    title: 'Bienvenue sur Songuesser !',
+    principle: {
+      title: 'Principe du jeu',
+      system: `Songuesser propose une expérience blind test personnalisée. Chaque partie est axée autour d'une <strong>chanson "thème"</strong>.
+                Cette chanson, choisie par les joueurs juste avant la partie, va servir de base de recherche à <strong>Spotify</strong> pour
+                trouver des chansons similaires qu'il faudra cette fois-ci deviner.`,
+      songs: `Une fois la partie commencée, les chansons vont s'enchainer jusqu'à la fin de la partie. Pour chaque chanson,
+              <strong>20 secondes</strong> sont accordées pour que tous les joueurs essayent de deviner le titre et l'interprète de la chanson
+              puis la réponse sera affichée pendant environ <strong>10 secondes</strong> avant de passer à la chanson suivante.`,
+      points: `Le premier joueur à énoncer le titre de la chanson gagne <strong>1 point</strong>, de même pour le premier à énoncer l'interprète.
+              Une fois la réponse dévoilée, le joueur le plus proche a <strong>10 secondes</strong> pour cliquer sur les noms des joueurs ayant
+              trouvé le titre et l'interprète. A la fin de la partie, le joueur ayant le plus de points gagne !`
+    }
+  },
   game: {
     start: 'Jouer',
     launch: 'Démarrer la partie',
@@ -34,6 +56,8 @@ export const fr: any = {
     title: 'À propos',
     project: `Le projet <strong>Songuesser</strong> est une initiative personnelle et indépendante ayant pour but d'explorer les
               possibilités offertes par l'API publique <a href="spotify.com" target="_blank">Spotify</a>.`,
+    icons: `Icônes conçues par <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+            <a href="https://www.flaticon.com/fr/" title="Flaticon">www.flaticon.com</a>`,
     author: `À propos de l'auteur`,
     author_name: 'Oscar Guérin, 23 ans',
     author_job: 'Ingénieur informatique',
