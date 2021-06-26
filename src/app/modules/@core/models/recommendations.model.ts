@@ -1,9 +1,10 @@
 import { Column, Id } from '@witty-services/ngx-repository';
 import { Track } from './track.model';
 import { HttpResource } from '@witty-services/ngx-http-repository';
+import { environment } from '../../../../environments/environment';
 
 @HttpResource({
-  read: '/spotify/recommendations'
+  read: `${ environment.spotify.url }/recommendations`
 })
 export class Recommendations {
 

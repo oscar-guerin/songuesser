@@ -24,21 +24,20 @@ a:hover, a:visited, a:focus {
 }
 
 .screenshot-container {
-  position: relative;
   margin: 100px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .screenshot {
-  transform: rotate(-3deg);
   border-radius: 40px;
   box-shadow: 0 0 60px 20px white;
 }
 
 .screenshot-launcher-legend {
-  position: absolute;
-  top: -30px;
-  left: 0;
-  max-width: 500px;
+  width: 100%;
   font-weight: bold;
   font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 16px;
 }

@@ -4,12 +4,13 @@ import { Injectable, Injector } from '@angular/core';
 import { delay, filter, first, retryWhen, switchMap, take } from 'rxjs/operators';
 import { ifNotNull } from '@witty-services/rxjs-common';
 import { AuthService } from '../services/auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   public static readonly ANONYMOUS_URLS: string[] = [
-    '/api'
+    environment.api.url
   ];
 
   public constructor(private readonly injector: Injector) {

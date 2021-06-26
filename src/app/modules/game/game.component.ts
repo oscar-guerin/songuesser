@@ -5,7 +5,6 @@ import { Track } from '../@core/models/track.model';
 import { delay, filter, first, map, scan, startWith, switchMap } from 'rxjs/operators';
 import { softCache, toHotArray } from '@witty-services/rxjs-common';
 import { Player } from '../@core/models/player.model';
-import { reverse } from 'lodash';
 import { Router } from '@angular/router';
 import { OnDestroyListener, takeUntilDestroy } from '@witty-services/ngx-common';
 
@@ -77,8 +76,7 @@ export class GameComponent {
 
     this.trackHistory$ = this.currentTrack$.pipe(
       toHotArray(),
-      map(reverse),
-      map((tracks: Track[]) => [...tracks.slice(1)])
+      map((tracks: Track[]) => [...tracks.slice(0, -1)])
     );
 
     this.gameService.canGameStart().pipe(

@@ -59,7 +59,7 @@ export class AuthService {
   }
 
   private getTokenFromCode(code: string): Observable<Token> {
-    return this.http.get<Token>('/api/auth/token', {
+    return this.http.get<Token>(`${ environment.api.url }/auth/token`, {
       params: {
         redirectUri: environment.spotify.redirectUri,
         clientId: environment.spotify.clientId,
@@ -69,7 +69,7 @@ export class AuthService {
   }
 
   private refreshToken(refreshToken: string): Observable<Token> {
-    return this.http.get<Token>('/api/auth/refresh', {
+    return this.http.get<Token>(`${ environment.api.url }/auth/refresh`, {
       params: {
         clientId: environment.spotify.clientId,
         refreshToken
