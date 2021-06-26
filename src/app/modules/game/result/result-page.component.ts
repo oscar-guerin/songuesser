@@ -6,7 +6,8 @@ import { Player } from '../../@core/models/player.model';
 import { map } from 'rxjs/operators';
 
 @Component({
-  templateUrl: 'result-page.component.html'
+  templateUrl: './result-page.component.html',
+  styleUrls: ['./result-page.component.scss']
 })
 export class ResultPageComponent {
 

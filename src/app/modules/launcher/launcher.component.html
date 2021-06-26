@@ -1,10 +1,10 @@
-<h1 class="mb-10">{{ 'launcher.title' | translate }}</h1>
+<h1>{{ 'launcher.title' | translate }}</h1>
 <nb-card>
   <nb-card-header>
     <sgr-card-title cardTitle="launcher.define_theme"
                     icon="music-outline">
     </sgr-card-title>
-    <small class="text-xs font-light">
+    <small>
       {{ 'launcher.seed_search_description' | translate }}
     </small>
   </nb-card-header>
@@ -17,13 +17,13 @@
     <sgr-card-title cardTitle="launcher.add_players"
                     icon="people-outline">
     </sgr-card-title>
-    <small class="text-xs font-light">
+    <small>
       {{ 'launcher.add_players_description' | translate }}
     </small>
   </nb-card-header>
   <nb-card-body class="flex flex-col">
     <div *ngFor="let control of playerNamesForm.controls; let i = index"
-         class="mb-2 flex justify-between w-1/2">
+         class="flex justify-between form-control">
       <input [formControl]="playerNamesForm.controls[i]"
              [status]="control.value ? 'success' : 'basic'"
              aria-label="player-name-{{ i }}"

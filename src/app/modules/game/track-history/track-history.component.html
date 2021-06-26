@@ -5,23 +5,23 @@
     </sgr-card-title>
   </nb-card-header>
   <nb-card-body>
-    <div class="flex flex-col h-80">
+    <section class="flex flex-col">
       <div *ngFor="let track of tracks"
-           class="flex px-3 py-2">
+           class="flex">
         <img [src]="track.album.images[0].url"
              alt="Album"
-             class="rounded-full h-10 w-10"
+             class="rounded-full"
              height="24"
              width="24"/>
-        <span class="flex flex-col pl-8 justify-center">
-        <span>
-          {{ track.name }}
+        <span class="flex flex-col justify-center track">
+          <span>
+            {{ track.name }}
+          </span>
+          <small>
+            {{ track.artists | artist }}
+          </small>
         </span>
-        <span class="text-sm">
-          {{ track.artists | artist }}
-        </span>
-      </span>
       </div>
-    </div>
+    </section>
   </nb-card-body>
 </nb-card>

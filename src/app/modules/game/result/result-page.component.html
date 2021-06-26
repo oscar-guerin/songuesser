@@ -1,19 +1,19 @@
-<h1 *ngIf="winnerName$ | async as winnerName"
-    class="mb-10">
+<h1 *ngIf="winnerName$ | async as winnerName">
   {{ 'game.winner_is' | translate:{name: winnerName} }}
 </h1>
 <sgr-scoreboard [players]="players$ | async"></sgr-scoreboard>
 <nb-card>
   <nb-card-body class="flex justify-end">
-    <button class="mr-3"
-            nbButton
+    <button nbButton
             outline
             routerLink="/app/home">
+      <nb-icon icon="home-outline"></nb-icon>
       {{ 'game.return_home' | translate }}
     </button>
     <button nbButton
             routerLink="/app/launcher"
             status="success">
+      <nb-icon icon="play-circle-outline"></nb-icon>
       {{ 'game.new_game' | translate }}
     </button>
   </nb-card-body>

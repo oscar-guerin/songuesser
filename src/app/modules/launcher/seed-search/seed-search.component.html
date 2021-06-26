@@ -11,19 +11,19 @@
   <ng-template let-item="item"
                ng-label-tmp
                ng-option-tmp>
-    <div class="flex px-3 py-2">
+    <div class="flex items-center">
       <img [src]="item.album.images[0].url"
            alt="Album"
-           class="rounded-full h-12 w-12"
+           class="rounded-full"
            height="32"
            width="32"/>
-      <span class="flex flex-col pl-3">
-        <span class="text-base">
+      <span class="flex flex-col">
+        <span>
           {{ item.name }}
         </span>
-        <span class="text-sm font-light">
+        <small>
           {{ item.artists | artist }}
-        </span>
+        </small>
       </span>
     </div>
   </ng-template>

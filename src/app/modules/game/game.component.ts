@@ -10,7 +10,8 @@ import { OnDestroyListener, takeUntilDestroy } from '@witty-services/ngx-common'
 
 @OnDestroyListener()
 @Component({
-  templateUrl: './game.component.html'
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.scss']
 })
 export class GameComponent {
 

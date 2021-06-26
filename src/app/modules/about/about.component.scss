@@ -1,0 +1,33 @@
+h1 {
+  margin-bottom: 3rem;
+}
+
+p, li {
+  margin-bottom: 1rem;
+}
+
+nb-card {
+  margin-top: 5rem;
+}
+
+section {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  div:first-child {
+    grid-column: 1;
+
+    img {
+      margin-bottom: 1rem;
+    }
+
+    strong {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  div:last-child {
+    grid-column: span 2;
+  }
+}

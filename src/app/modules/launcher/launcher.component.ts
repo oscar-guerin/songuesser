@@ -13,7 +13,8 @@ import { softCache } from '@witty-services/rxjs-common';
 
 @OnDestroyListener()
 @Component({
-  templateUrl: './launcher.component.html'
+  templateUrl: './launcher.component.html',
+  styleUrls: ['./launcher.component.scss']
 })
 export class LauncherComponent {
 

@@ -8,7 +8,8 @@ import { map, switchMap, take } from 'rxjs/operators';
 @OnDestroyListener()
 @Component({
   selector: 'sgr-track-player',
-  templateUrl: 'track-player.component.html'
+  templateUrl: 'track-player.component.html',
+  styleUrls: ['./track-player.component.scss']
 })
 export class TrackPlayerComponent implements OnDestroy {
 

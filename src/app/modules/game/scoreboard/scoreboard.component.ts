@@ -3,7 +3,8 @@ import { Player } from '../../@core/models/player.model';
 
 @Component({
   selector: 'sgr-scoreboard',
-  templateUrl: 'scoreboard.component.html'
+  templateUrl: './scoreboard.component.html',
+  styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent {
 

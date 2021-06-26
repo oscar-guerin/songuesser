@@ -8,6 +8,7 @@ a {
   text-decoration: none;
   cursor: pointer;
   border-bottom: 2px solid transparent;
+  margin-right: 1.5rem;
 }
 
 a:hover, .active {
@@ -16,6 +17,7 @@ a:hover, .active {
 
 a nb-icon {
   font-size: 1.5rem;
+  margin-right: 0.5rem;
 }
 
 a span {

@@ -10,11 +10,7 @@ import { OnAttributeChange, OnDestroyListener, takeUntilDestroy } from '@witty-s
 @Component({
   selector: 'sgr-seed-search',
   templateUrl: 'seed-search.component.html',
-  styles: [`
-    :host {
-      display: block;
-    }
-  `]
+  styleUrls: ['./seed-search.component.scss']
 })
 export class SeedSearchComponent {
 

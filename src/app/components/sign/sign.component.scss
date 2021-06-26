@@ -1,10 +1,16 @@
+.songuesser-icon {
+  margin-right: 1.5rem;
+}
+
 .title {
   margin-top: 25%;
+  margin-bottom: 1.5rem;
   font-size: 3rem !important;
 }
 
 p {
   font-size: 1.1rem;
+  margin-bottom: 3rem;
 }
 
 a {
@@ -21,6 +27,10 @@ a:hover, a:visited, a:focus {
   color: white;
   text-decoration: none;
   box-shadow: 0 0 5px 4px #80808020;
+}
+
+.spotify-icon {
+  margin-right: 1.5rem;
 }
 
 .screenshot-container {
